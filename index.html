@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de Identidade Pós Algorítmica</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div class="title">Simulador de Identidade Pós‑Algorítmica</div>
+        <div class="subtitle">“O DIGITAL E O REAL EM COLAPSO: ANÁLISE DE UMA SOCIEDADE PÓS‑ALGORÍTIMICA”</div>
+      </div>
+    </div>
+    <label class="toggle" title="Ativa/desativa modo colapso (glitch)">
+      <input id="collapseSwitch" class="switch" type="checkbox" />
+      <span>Modo colapso</span>
+    </label>
+  </header>
+
+  <main id="app">
+    <section class="grid hero">
+      <div class="card">
+        <h1 class="glitch" data-text="Quem você é — segundo um algoritmo?">Quem você é — segundo um algoritmo?</h1>
+        <p>Insira alguns dados “reais”. Nós devolveremos uma versão “otimizada” de você. (Nada é enviado: tudo roda localmente no seu navegador.)</p>
+
+        <form id="form">
+          <div>
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="Ex.: Gabriel" required minlength="2" />
+          </div>
+          <div>
+            <label for="idade">Idade</label>
+            <input id="idade" name="idade" type="number" min="10" max="120" step="1" placeholder="Ex.: 22" required />
+          </div>
+          <div>
+            <label for="avatar">Foto (opcional)</label>
+            <input id="avatar" name="avatar" type="file" accept="image/*" />
+          </div>
+          <div>
+            <label for="visibilidade">Visibilidade</label>
+            <select id="visibilidade" name="visibilidade">
+              <option value="pública">Pública</option>
+              <option value="semipública">Semipública</option>
+              <option value="privada">Privada</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Analisar</button>
+            <span class="note">O algoritmo pode errar feio. Quase sempre.</span>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="processing" id="processing">
+          <div class="terminal" id="terminal" aria-live="polite" aria-atomic="false"></div>
+        </div>
+
+        <div id="result" class="result" aria-live="polite">
+          <div class="split">
+            <div class="card">
+              <div class="ident">
+                <div class="avatar" aria-hidden="true">
+                  <img id="avatarPreview" alt="avatar" />
+                  <div class="scan"></div>
+                </div>
+                <div>
+                  <div class="nome" id="nomeDistorcido">Usuário_0x00</div>
+                  <div class="tags" id="tags"></div>
+                </div>
+              </div>
+              <div class="stats">
+                <div class="pill">Idade declarada: <strong id="idadeReal"></strong></div>
+                <div>
+                  <div class="pill">Idade estimada pelo algoritmo: <strong id="idadeAlg"></strong></div>
+                  <div class="meter" aria-label="Confiança da estimativa"><span id="confBar" style="width:42%"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3 class="h3">Rascunho de Perfil</h3>
+              <ul id="perfil" class="list"></ul>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="h3">Recomendações Algorítmicas (não solicitadas)</h3>
+            <ul id="recs" class="list"></ul>
+          </div>
+          <div class="card">
+            <h3 class="h3">Anotação Crítica</h3>
+            <p class="note">Este resultado é uma ficção gerada por regras aleatórias. A precisão percebida é apenas um efeito estético. Se você se sentiu reduzido a rótulos simplistas, a experiência funcionou.</p>
+          </div>
+          <div class="btnrow">
+            <button class="btn" id="again">Reprocessar</button>
+            <button class="btn btn-muted" id="reset">Novo usuário</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Projeto conceitual</strong> — inspirado na monografia <em>“O DIGITAL E O REAL EM COLAPSO: ANÁLISE DE UMA SOCIEDADE PÓS‑ALGORÍTIMICA”</em>. Nenhum dado é enviado a servidores; tudo roda localmente.</div>
+    <div class="mono">v0.2 • CC‑BY‑NC • HTML/CSS/JS puro</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
